@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\Dashboard\DashboardCotroller;
-use App\Http\Controllers\GoogleCotroller;
+use App\Http\Controllers\Socil\GoogleController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -30,8 +30,8 @@ Route::group(
 
         Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-        Route::get('auth/google', [GoogleCotroller::class, 'google']);
-        Route::get('auth/google/callback', [GoogleCotroller::class, 'googlecallback']);
+        Route::get('auth/google', [GoogleController::class, 'google']);
+        Route::get('auth/google/callback', [GoogleController::class, 'googlecallback']);
 
         // Route::prefix('dashboard')->name('dashboard.')->middleware(['auth'])->group(function () {
         //     // Dahsbboard

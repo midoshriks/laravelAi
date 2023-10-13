@@ -10,19 +10,20 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    <!-- FILE head Html-->
     @include('layouts.dashboard.head')
 
 </head>
 
 @if (app()->getLocale() == 'en')
-
     <body class="vertical light ">
     @else
-
         <body class="vertical light rtl">
 @endif
 <div class="wrapper vh-100">
-    @yield('content')
+    @include('layouts.dashboard.navbar')
+        @include('layouts.dashboard.aside')
+        @yield('content')
 </div>
 @include('layouts.dashboard.script')
 </body>

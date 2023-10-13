@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
-use App\Http\Controllers\Dashboard\DashboardCotroller;
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\GoogleCotroller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -33,7 +33,7 @@ Route::group(
         Auth::routes();
         Route::prefix('dashboard')->name('dashboard.')->middleware(['auth'])->group(function () {
             // Dahsbboard
-            Route::get('/index', [DashboardCotroller::class, 'index'])->name('index');
+            Route::get('/index', [DashboardController::class, 'index'])->name('index');
         });
     }
 );
