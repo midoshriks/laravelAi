@@ -30,6 +30,39 @@ return [
 
     'disks' => [
 
+        'backup' => [
+            'driver' => 'local',
+            'root' => public_path('backup'),
+            'url' => env('APP_URL') . '/backup',
+            'visibility' => 'public',
+        ],
+
+        'users' => [
+            'driver' => 'local',
+            'root' => public_path('uploads/users'),
+            'url' => env('APP_URL') . '/uploads/users',
+            'visibility' => 'public',
+        ],
+
+        'admins' => [
+            'driver' => 'local',
+            'root' => public_path('uploads/admins'),
+            'url' => env('APP_URL') . '/uploads/admins',
+            'visibility' => 'public',
+        ],
+
+        'media' => [
+            'driver' => 'local',
+            'root' => public_path('uploads'),
+            'url' => env('APP_URL') . '/uploads',
+            'visibility' => 'public',
+        ],
+
+        'public_uploads' => [
+            'driver' => 'local',
+            'root' => public_path('uploads'),
+        ],
+
         'local' => [
             'driver' => 'local',
             'root' => storage_path('app'),

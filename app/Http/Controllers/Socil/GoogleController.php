@@ -23,24 +23,25 @@ class GoogleController extends Controller
         try {
             $user = Socialite::driver('google')->stateless()->user(); // Error
             // $user = Socialite::driver('google')->user();
-            // dd($user);
+            // dd($user,$user->avatar);
 
             $finduser = User::where('google_id', $user->id)->first();
 
             if ($finduser) {
                 Auth::login($finduser);
-                return redirect()->intended('home');
+                return redirect()->intended('ai/home');
             } else {
                 $newUser = User::create([
                     'name' => $user->name,
                     'email' => $user->email,
                     'google_id' => $user->id,
+                    'avatar' => $user->avatar,
                     'type_id' => '2', //user
                     'password' => bcrypt('12345678'),
                 ]);
 
                 Auth::login($newUser);
-                return redirect()->intended('home');
+                return redirect()->intended('ai/home');
             }
         } catch (Exception $e) {
             dd($e->getMessage(), 'Mido developer');

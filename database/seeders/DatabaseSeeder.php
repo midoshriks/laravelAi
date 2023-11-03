@@ -20,5 +20,11 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $this->call(TypesTableSeeder::class);
+        $this->call(LaratrustSeeder::class);
+        $this->call(UsersTableSeeder::class);
+        $this->call(CountriesTableSeeder::class);
+        $this->call(PagesTableSeeder::class);
+        $this->call(CardsTableSeeder::class);
+        $this->call(SectionsTableSeeder::class);
     }
 }

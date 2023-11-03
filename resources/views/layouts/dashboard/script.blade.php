@@ -1,3 +1,4 @@
+@stack('scripts')
 <script src="{{ asset('./backend/layouts/js/jquery.min.js') }}"></script>
 <script src="{{ asset('./backend/layouts/js/popper.min.js') }}"></script>
 <script src="{{ asset('./backend/layouts/js/moment.min.js') }}"></script>
@@ -20,29 +21,29 @@
     gtag('config', 'UA-56159088-1');
 </script>
 
-<script src="{{ asset('./backend/layouts/js/d3.min.js')}}"></script>
-<script src="{{ asset('./backend/layouts/js/topojson.min.js')}}"></script>
-<script src="{{ asset('./backend/layouts/js/datamaps.all.min.js')}}"></script>
-<script src="{{ asset('./backend/layouts/js/datamaps-zoomto.js')}}"></script>
-<script src="{{ asset('./backend/layouts/js/datamaps.custom.js')}}"></script>
-<script src="{{ asset('./backend/layouts/js/Chart.min.js')}}"></script>
+<script src="{{ asset('./backend/layouts/js/d3.min.js') }}"></script>
+<script src="{{ asset('./backend/layouts/js/topojson.min.js') }}"></script>
+<script src="{{ asset('./backend/layouts/js/datamaps.all.min.js') }}"></script>
+<script src="{{ asset('./backend/layouts/js/datamaps-zoomto.js') }}"></script>
+<script src="{{ asset('./backend/layouts/js/datamaps.custom.js') }}"></script>
+<script src="{{ asset('./backend/layouts/js/Chart.min.js') }}"></script>
 <script>
     /* defind global options */
     Chart.defaults.global.defaultFontFamily = base.defaultFontFamily;
     Chart.defaults.global.defaultFontColor = colors.mutedColor;
 </script>
-<script src="{{ asset('./backend/layouts/js/gauge.min.js')}}"></script>
-<script src="{{ asset('./backend/layouts/js/jquery.sparkline.min.js')}}"></script>
-<script src="{{ asset('./backend/layouts/js/apexcharts.min.js')}}"></script>
-<script src="{{ asset('./backend/layouts/js/apexcharts.custom.js')}}"></script>
-<script src="{{ asset('./backend/layouts/js/jquery.mask.min.js')}}"></script>
-<script src="{{ asset('./backend/layouts/js/select2.min.js')}}"></script>
-<script src="{{ asset('./backend/layouts/js/jquery.steps.min.js')}}"></script>
-<script src="{{ asset('./backend/layouts/js/jquery.validate.min.js')}}"></script>
-<script src="{{ asset('./backend/layouts/js/jquery.timepicker.js')}}"></script>
-<script src="{{ asset('./backend/layouts/js/dropzone.min.js')}}"></script>
-<script src="{{ asset('./backend/layouts/js/uppy.min.js')}}"></script>
-<script src="{{ asset('./backend/layouts/js/quill.min.js')}}"></script>
+<script src="{{ asset('./backend/layouts/js/gauge.min.js') }}"></script>
+<script src="{{ asset('./backend/layouts/js/jquery.sparkline.min.js') }}"></script>
+<script src="{{ asset('./backend/layouts/js/apexcharts.min.js') }}"></script>
+<script src="{{ asset('./backend/layouts/js/apexcharts.custom.js') }}"></script>
+<script src="{{ asset('./backend/layouts/js/jquery.mask.min.js') }}"></script>
+<script src="{{ asset('./backend/layouts/js/select2.min.js') }}"></script>
+<script src="{{ asset('./backend/layouts/js/jquery.steps.min.js') }}"></script>
+<script src="{{ asset('./backend/layouts/js/jquery.validate.min.js') }}"></script>
+<script src="{{ asset('./backend/layouts/js/jquery.timepicker.js') }}"></script>
+<script src="{{ asset('./backend/layouts/js/dropzone.min.js') }}"></script>
+<script src="{{ asset('./backend/layouts/js/uppy.min.js') }}"></script>
+<script src="{{ asset('./backend/layouts/js/quill.min.js') }}"></script>
 
 <script>
     $('.select2').select2({
@@ -95,7 +96,7 @@
         }
     }, cb);
     cb(start, end);
-    $('.input-placeholder').mask("00/00/0000", {
+    $('.input-placeholder').mask("0000/00/00", {
         placeholder: "__/__/____"
     });
     $('.input-zip').mask('00000-000', {
@@ -104,7 +105,7 @@
     $('.input-money').mask("#.##0,00", {
         reverse: true
     });
-    $('.input-phoneus').mask('(000) 000-0000');
+    $('.input-phoneus').mask('(000) 000-00000');
     $('.input-mixed').mask('AAA 000-S0S');
     $('.input-ip').mask('0ZZ.0ZZ.0ZZ.0ZZ', {
         translation: {
@@ -215,6 +216,30 @@
             console.log('Upload complete! We’ve uploaded these files:', result.successful)
         });
     }
+</script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-56159088-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'UA-56159088-1');
+</script>
+
+{{-- date tabel --}}
+<script src="{{ asset('./backend/layouts/js/jquery.dataTables.min.js')}}"></script>
+<script src="{{ asset('./backend/layouts/js/dataTables.bootstrap4.min.js')}}"></script>
+<script>
+    $('#dataTable-1').DataTable({
+        autoWidth: true,
+        "lengthMenu": [
+            [16, 32, 64, -1],
+            [16, 32, 64, "All"]
+        ]
+    });
 </script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-56159088-1"></script>

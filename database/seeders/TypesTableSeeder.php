@@ -17,12 +17,15 @@ class TypesTableSeeder extends Seeder
             ["name" => "admin",  "model" => 'user'],
             ["name" => "user",  "model" => 'user'],
             ["name" => "visitor",  "model" => 'user'],
+            ["name" => "navbar",  "model" => 'page'],
+            ["name" => "card",  "model" => 'card'],
+            ["name" => "section",  "model" => 'section'],
         ];
 
         foreach ($models as $key => $model) {
             # code... Run
             Type::create($model);
-            
+
             // OR Run this
             // $types = Type::create([
             //     "model" => $model,

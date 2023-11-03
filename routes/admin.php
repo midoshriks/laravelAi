@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\AdminsController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\GoogleCotroller;
 use Illuminate\Support\Facades\Auth;
@@ -34,6 +35,8 @@ Route::group(
         Route::prefix('dashboard')->name('dashboard.')->middleware(['auth'])->group(function () {
             // Dahsbboard
             Route::get('/index', [DashboardController::class, 'index'])->name('index');
+
+            Route::resource('/admins',AdminsController::class);
         });
     }
 );

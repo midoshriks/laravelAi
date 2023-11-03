@@ -16,6 +16,7 @@
 <link rel="stylesheet" href="{{ asset('./backend/layouts/css/jquery.steps.css')}}">
 <link rel="stylesheet" href="{{ asset('./backend/layouts/css/jquery.timepicker.css')}}">
 <link rel="stylesheet" href="{{ asset('./backend/layouts/css/quill.snow.css')}}">
+<link rel="stylesheet" href="{{ asset('./backend/layouts/css/dataTables.bootstrap4.css')}}">
 <!-- Date Range Picker CSS -->
 <link rel="stylesheet" href="{{ asset('./backend/layouts/css/daterangepicker.css')}}">
 

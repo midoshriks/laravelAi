@@ -20,12 +20,14 @@
     @else
         <body class="vertical light rtl">
 @endif
-<div class="wrapper vh-100">
-    @include('layouts.dashboard.navbar')
-        @include('layouts.dashboard.aside')
-        @yield('content')
-</div>
-@include('layouts.dashboard.script')
+        <div class="wrapper vh-100">
+            @include('layouts.dashboard.navbar')
+                @include('layouts.dashboard.aside')
+            @yield('content')
+        </div>
+    @include('layouts.dashboard.script')
+    {{-- Sweetalret2 install laravel --}}
+    @include('vendor.sweetalert.alert')
 </body>
 
 </html>

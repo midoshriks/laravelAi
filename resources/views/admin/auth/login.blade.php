@@ -15,7 +15,7 @@
                     </g>
                 </svg>
             </a>
-            <h1 class="h6 mb-3">Sign in</h1>
+            <h1 class="h6 mb-3">Sign in Admin</h1>
             <div class="form-group">
                 <label for="inputEmail" class="sr-only">Email address</label>
                 <input type="email" id="inputEmail" class="form-control form-control-lg @error('email') is-invalid @enderror" placeholder="Email address"

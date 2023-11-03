@@ -31,47 +31,73 @@
                 role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="avatar avatar-sm mt-2">
                     @if (app()->getLocale() == 'en')
-                        <img src="{{ asset('./backend/light/assets/images/flags/us.svg')}}" alt="..." class="avatar-img rounded-circle">
+                        <img src="{{ asset('./backend/light/assets/images/flags/us.svg') }}" alt="..."
+                            class="avatar-img rounded-circle">
                     @elseif (app()->getLocale() == 'ar')
-                        <img src="{{ asset('./backend/light/assets/images/flags/eg.svg')}}" alt="..." class="avatar-img rounded-circle">
+                        <img src="{{ asset('./backend/light/assets/images/flags/eg.svg') }}" alt="..."
+                            class="avatar-img rounded-circle">
                     @endif
                 </span>
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
                 {{-- <ul class="dropdown-menu dropdown-menu-end"> --}}
-                    @foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                @foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
                     {{-- <li> --}}
-                        <a class="dropdown-item" rel="alternate" hreflang="{{ $localeCode }}"
-                            href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
-                            {{ $properties['native'] }}
-                        </a>
+                    <a class="dropdown-item" rel="alternate" hreflang="{{ $localeCode }}"
+                        href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                        {{ $properties['native'] }}
+                    </a>
                     {{-- </li> --}}
                 @endforeach
                 {{-- </ul> --}}
             </div>
         </li>
 
+        {{-- @dd(Auth::user()->types->name) --}}
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-muted pr-0" href="#" id="navbarDropdownMenuLink"
                 role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="avatar avatar-sm mt-2">
-                    <img src="{{ asset('./backend/layouts/assets/avatars/face-1.jpg')}}" alt="..." class="avatar-img rounded-circle">
+                    @if (Auth()->user()->facebook_id)
+                        <img src="{{ Auth()->user()->avatar }}" height="35" alt="..."
+                            class="avatar-img rounded-circle">
+                    @elseif (Auth()->user()->google_id)
+                        <img src="{{ Auth()->user()->avatar }}" height="35" alt="..."
+                            class="avatar-img rounded-circle">
+                    @else
+                        <img src="{{ asset('./backend/layouts/assets/avatars/face-1.jpg') }}" alt="..."
+                            class="avatar-img rounded-circle">
+                    @endif
                 </span>
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="#">{{ Auth()->user()->name }}</a>
                 <a class="dropdown-item" href="#">Profile</a>
                 <a class="dropdown-item" href="#">Settings</a>
                 <a class="dropdown-item" href="#">Activities</a>
                 {{-- <a class="dropdown-item" href="#"></a> --}}
-                <a class="dropdown-item" href="{{ route('logout') }}"
-                onclick="event.preventDefault();
-                            document.getElementById('logout-form').submit();">
-                    {{ __('LogOut') }}
-                </a>
+                @if (Auth::user()->types->name == 'admin')
+                    <a class="dropdown-item" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                        {{ __('LogOut') }}
+                    </a>
 
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                    @csrf
-                </form>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                @else
+                    <a class="dropdown-item" href="{{ route('ai.logout') }}"
+                        onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                        {{ __('LogOut') }}
+                    </a>
+
+                    <form id="logout-form" action="{{ route('ai.logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                @endif
+
             </div>
         </li>
 

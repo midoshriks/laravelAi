@@ -15,13 +15,22 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->date('dob_date')->nullable();
+            $table->string('phone')->unique()->nullable();
+            $table->string('gender')->nullable();
+            $table->integer('country_id')->nullable();
             $table->string('google_id')->nullable();
+            $table->string('facebook_id')->nullable();
             $table->timestamp('email_verified_at')->nullable();
+            $table->string('status')->default(1);
             $table->string('password');
+            $table->string('avatar')->nullable()->default('user.png');
+
             $table->bigInteger('type_id')->unsigned();
             $table->foreign('type_id')->references('id')->on('types')->onDelete('cascade');
             $table->rememberToken();
             $table->timestamps();
+
         });
     }
 
